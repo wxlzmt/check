@@ -23,23 +23,27 @@
 <title>测试页</title>
 <!-- pageid="b1978406705d4c11b876e097b623de94" -->
 <style type="text/css" >
-* {
+*{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+.clearfix:after{visibility:hidden;display:block;font-size:0;content: " ";clear:both;height:0;}   
+.clearfix{*zoom:1;}
 @media screen and (min-width: 768px) {
-.container {
-    width: 750px;
+	.container {
+	    width: 750px;
+	}
 }
 @media screen and (min-width: 992px) {
-.container {
-    width: 970px;
+	.container {
+	    width: 970px;
+	}
 }
 @media screen and (min-width: 1200px) {
-.container {
-    width: 1170px;
+	.container {
+	    width: 1170px;
+	}
 }
 .container {
     padding-right: 15px;
@@ -121,7 +125,7 @@ hr {
 </head>
 
 <body>
-<div class="container">
+<div class="container clearfix">
 <h3>HTTP请求时间 : <%=now %></h3>
 <%
 	List<String> requestParameterNameList = new ArrayList<String>();
