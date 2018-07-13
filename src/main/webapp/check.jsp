@@ -208,13 +208,10 @@ hr {
 	<tr><td>remotePort</td><td><%=request.getRemotePort() %></td></tr>
 	<tr><td>remoteUser</td><td><%=request.getRemoteUser() %></td></tr>
 	<tr><td>authType</td><td><%=request.getAuthType() %></td></tr>
-	<tr><td>isAsyncStarted</td><td><%=request.isAsyncStarted() %></td></tr>
-	<tr><td>isAsyncSupported</td><td><%=request.isAsyncSupported() %></td></tr>
 	<tr><td>isRequestedSessionIdFromCookie</td><td><%=request.isRequestedSessionIdFromCookie() %></td></tr>
 	<tr><td>isRequestedSessionIdFromURL</td><td><%=request.isRequestedSessionIdFromURL() %></td></tr>
 	<tr><td>isRequestedSessionIdValid</td><td><%=request.isRequestedSessionIdValid() %></td></tr>
 	<tr><td>isSecure</td><td><%=request.isSecure() %></td></tr>
-	<tr><td>isTrailerFieldsReady</td><td><%=request.isTrailerFieldsReady() %></td></tr>
 	<tr><td>toString</td><td><%=request.toString() %></td></tr>
 </table>
 </div>

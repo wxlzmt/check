@@ -18,9 +18,9 @@ import javax.servlet.http.HttpServletRequestWrapper;
 public class CharacterEncodingFilter implements javax.servlet.Filter {
 
 	private String defaultEncoding = "UTF-8";
-    /**释义:是否过滤POST请求的参数.*/
+	/**释义:是否过滤POST请求的参数.*/
 	private boolean enableFilterPostMethod = true;
-    /**释义:是否过滤GET请求的参数.*/
+	/**释义:是否过滤GET请求的参数.*/
 	private boolean enableFilterGetMethod = true;
 
 	@Override
@@ -31,8 +31,9 @@ public class CharacterEncodingFilter implements javax.servlet.Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
 		// 处理请求乱码
-		if (enableFilterPostMethod || enableFilterGetMethod) {
-			HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		String method = httpServletRequest.getMethod();
+		if ((method.equalsIgnoreCase("POST") && enableFilterPostMethod) || (method.equalsIgnoreCase("GET") && enableFilterGetMethod)) {
 			HttpServletRequest myRequest = new MyRequest(httpServletRequest);
 			filterChain.doFilter(myRequest, response);
 		} else {
@@ -89,7 +90,7 @@ public class CharacterEncodingFilter implements javax.servlet.Filter {
 			}
 			// 先获得请求方式
 			String method = request.getMethod();
-			if (method.equalsIgnoreCase("POST") && enableFilterPostMethod) { // post方式请求
+			if (method.equalsIgnoreCase("POST")) { // post方式请求
 				try {
 					request.setCharacterEncoding(defaultEncoding);
 					this.cachedParameterMap = request.getParameterMap();
@@ -97,7 +98,7 @@ public class CharacterEncodingFilter implements javax.servlet.Filter {
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				}
-			} else if (method.equalsIgnoreCase("GET") && enableFilterGetMethod) { // get方式请求
+			} else if (method.equalsIgnoreCase("GET")) { // get方式请求
 				Map<String, String[]> parameterMap = request.getParameterMap();
 				if (!hasEncode) {
 					for (String parameterName : parameterMap.keySet()) {
