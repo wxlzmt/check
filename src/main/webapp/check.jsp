@@ -23,27 +23,23 @@
 <title>测试页</title>
 <!-- pageid="b1978406705d4c11b876e097b623de94" -->
 <style type="text/css" >
-*{
+* {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.clearfix:after{visibility:hidden;display:block;font-size:0;content: " ";clear:both;height:0;}   
-.clearfix{*zoom:1;}
+
 @media screen and (min-width: 768px) {
-	.container {
-	    width: 750px;
-	}
+.container {
+    width: 750px;
 }
 @media screen and (min-width: 992px) {
-	.container {
-	    width: 970px;
-	}
+.container {
+    width: 970px;
 }
 @media screen and (min-width: 1200px) {
-	.container {
-	    width: 1170px;
-	}
+.container {
+    width: 1170px;
 }
 .container {
     padding-right: 15px;
@@ -125,8 +121,8 @@ hr {
 </head>
 
 <body>
-<div class="container clearfix">
-<h3>HTTP请求时间 : <%=now %></h3>
+<div class="container">
+<h3>Date Now : <%=now %></h3>
 <%
 	List<String> requestParameterNameList = new ArrayList<String>();
 	Enumeration<String> e = request.getParameterNames();
@@ -149,7 +145,7 @@ hr {
 	<tr><td><%=key %></td><td><%=request.getParameter(key) %></td></tr>
 	<%}else{ %>
 		<% for(int j=0;j<values.length;j++){ %>
-	<tr><td><%=key %></td><td><%=values[i] %></td></tr>
+	<tr><td><%=key %></td><td><%=values[j] %></td></tr>
 		<% } %>
 	<% } %>
 <% } %>
@@ -208,13 +204,15 @@ hr {
 	<tr><td>remotePort</td><td><%=request.getRemotePort() %></td></tr>
 	<tr><td>remoteUser</td><td><%=request.getRemoteUser() %></td></tr>
 	<tr><td>authType</td><td><%=request.getAuthType() %></td></tr>
+	<tr><td>isAsyncStarted</td><td><%=request.isAsyncStarted() %></td></tr>
+	<tr><td>isAsyncSupported</td><td><%=request.isAsyncSupported() %></td></tr>
 	<tr><td>isRequestedSessionIdFromCookie</td><td><%=request.isRequestedSessionIdFromCookie() %></td></tr>
 	<tr><td>isRequestedSessionIdFromURL</td><td><%=request.isRequestedSessionIdFromURL() %></td></tr>
 	<tr><td>isRequestedSessionIdValid</td><td><%=request.isRequestedSessionIdValid() %></td></tr>
 	<tr><td>isSecure</td><td><%=request.isSecure() %></td></tr>
+	<tr><td>isTrailerFieldsReady</td><td><%=request.isTrailerFieldsReady() %></td></tr>
 	<tr><td>toString</td><td><%=request.toString() %></td></tr>
 </table>
 </div>
 </body>
 </html>
-
