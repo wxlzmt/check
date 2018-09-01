@@ -14,8 +14,14 @@ java , jsp
 
 打成`war`包可以放到`tomcat`下直接用,不涉及配置项,不涉及数据库.    
 
-也可以单独使用 [/src/main/webapp/check.jsp](https://github.com/wxlzmt/check/blob/master/src/main/webapp/check.jsp) ,放到已存在的jsp项目中做测试用.    
-独立文件,不涉及其它css/js.
+[/src/main/webapp/check.jsp](https://github.com/wxlzmt/check/blob/master/src/main/webapp/check.jsp) , [/src/main/webapp/check-text.jsp](https://github.com/wxlzmt/check/blob/master/src/main/webapp/check-text.jsp) , 放到已存在的jsp项目中做测试用.    
+独立文件,不涉及其它css/js.    
+
+单独使用 [/src/main/webapp/check.jsp](https://github.com/wxlzmt/check/blob/master/src/main/webapp/check.jsp),返回美化版的html;    
+方便浏览器美化展示;
+
+单独使用 [/src/main/webapp/check-text.jsp](https://github.com/wxlzmt/check/blob/master/src/main/webapp/check-text.jsp) ,返回 text/plain;    
+方便curl方式访问;
 
 ---
 
